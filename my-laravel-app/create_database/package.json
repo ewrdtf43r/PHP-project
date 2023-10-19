@@ -1,0 +1,19 @@
+{
+  "name": "laravel-db-creator",
+  "version": "1.0.0",
+  "description": "Node.js application for creating a MySQL database for a Laravel project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Laravel",
+    "Database"
+  ],
+  "author": "LaprizzDEV",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.6.1"
+  }
+}
