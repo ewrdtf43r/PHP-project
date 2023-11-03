@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Alien Encounteres';
+    src: url('/fonts/alien-encounters-solid.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Alien Encounteres', sans-serif;
+    overflow: hidden;
+    background: url('/img/login_bg.gif') center center no-repeat;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Вернули цвет фона внутри окна */
+    border: 5px solid #FF18F6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #FF18F6;
+    text-align: center;
+    padding: 30px;
+    width: 320px;
+    color: #FF18F6;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0 0 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+input {
+    width: 92%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #FF18F6;
+    background-color: transparent;
+    color: #FF18F6;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #FF18F6;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+a {
+    color: #FF18F6;
+    text-decoration: none;
+}

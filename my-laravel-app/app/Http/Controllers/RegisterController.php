@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Person;
+use Illuminate\Support\Facades\Response;
 
 class RegisterController extends Controller
 {
@@ -20,11 +21,25 @@ class RegisterController extends Controller
 
         $person = Person::where('name', 'Laprizz')->first();
         $personName = $person->name;
-        auth()->login($person);
-        return redirect('/');
+        // auth()->login($person);
+        // return redirect('/');
 
         // echo $person;
 
-        // return view('register');
+        return view('register');
+    }
+
+    public function generatePassword(Request $request) {
+        // Генерация пароля
+        $charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $passwordLength = 8;
+        $generatedPassword = '';
+        for ($i = 0; $i < $passwordLength; $i++) {
+            $randomIndex = rand(0, strlen($charset) - 1);
+            $generatedPassword .= $charset[$randomIndex];
+        }
+
+        // Возвращаем пароль в виде JSON
+        return Response::json(['password' => $generatedPassword]);
     }
 }
