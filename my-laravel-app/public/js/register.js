@@ -34,23 +34,29 @@ $(document).ready(function() {
                 passport: passport
             },
             dataType: 'json',
-            success: function(data) {
-                const generatedPassword = data.password;
-
-                // Скрытие формы и ссылки "Already have an account"
-                $('#registration-form').addClass('hidden');
-                $('a[href="/login"]').addClass('hidden');
-
-                // Отображение сгенерированного пароля и кнопки "Enter"
-                $('#password-container').removeClass('hidden');
-                $('#password-result').text(generatedPassword);
-                $('#enter-button').removeClass('hidden');
-
-                $('body').addClass('validated-styles');
+            success: function(data, textStatus, xhr) {
+                if (xhr.status === 200) {
+                    const generatedPassword = data.password;
+        
+                    // Скрытие формы и ссылки "Already have an account"
+                    $('#registration-form').addClass('hidden');
+                    $('a[href="/login"]').addClass('hidden');
+        
+                    // Отображение сгенерированного пароля и кнопки "Enter"
+                    $('#password-container').removeClass('hidden');
+                    $('#password-result').text(generatedPassword);
+                    $('#enter-button').removeClass('hidden');
+        
+                    $('body').addClass('validated-styles');
+                }
             },
-            error: function(error) {
-                console.error(error);
+            error: function(xhr) {
+                if (xhr.status === 409) {
+                    alert('User with this email already exists.');
+                } else {
+                    alert('An error occurred during registration. Please try again later.');
+                }
             }
-        });
+        });        
     });
 });

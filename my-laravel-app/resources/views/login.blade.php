@@ -1,6 +1,6 @@
 @extends('layout')
-<!-- resources/views/register.blade.php -->
-@section('title', 'Retro Wave Registration')
+<!-- resources/views/login.blade.php -->
+@section('title', 'Retro Wave Login')
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
@@ -19,5 +19,6 @@
 @endsection
 
 @section('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('js/login.js') }}"></script>
 @endsection

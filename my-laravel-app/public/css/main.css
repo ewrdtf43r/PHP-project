@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Alien Encounteres';
+    src: url('/fonts/alien-encounters-solid.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Alien Encounteres', sans-serif;
+    overflow: hidden;
+    background: url('/img/main_bg.gif') center center no-repeat;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Вернули цвет фона внутри окна */
+    border: 5px solid #FF18F6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #FF18F6;
+    text-align: center;
+    padding: 30px;
+    width: 320px;
+    color: #FF18F6;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0 0 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+input {
+    width: 92%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #FF18F6;
+    background-color: transparent;
+    color: #FF18F6;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #FF18F6;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+a {
+    color: #FF18F6;
+    text-decoration: none;
+}
+
+/* Стили для оцентрирования и форматирования окна */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.account-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 5px solid #FF18F6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #FF18F6;
+    text-align: center;
+    padding: 30px;
+    width: 320px;
+    color: #FF18F6;
+}
+
+/* Стили для большого текстового поля */
+#about-container {
+    width: 400px; /* Установите фиксированную ширину в соответствии с окном Account */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-textarea {
+    width: 100%;
+    height: 210px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: transparent;
+    color: #FF18F6;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    border: 2px solid #FF18F6; /* Задаем границу вокруг текстового поля */
+    border-radius: 5px; /* Скругляем углы границы */
+    resize: none; /* Запрет на изменение размера поля */
+}
+
+@media (max-width: 768px) {
+    body {
+        display: grid;
+    }
+    .centered-container {
+        min-height: 10vh;
+        padding: 0;
+    }
+    
+    #about-container {
+        width: 320px;
+    }
+}
+
+/* Запретить браузеру изменять стили при автозаполнений формы */
+input:-webkit-autofill { 
+    transition: all 0s 50000s; 
+    -webkit-text-fill-color: #FF18F6 !important;
+}

@@ -13,7 +13,7 @@
             @csrf <!-- Вставьте CSRF-токен в форму -->
             <input type="text" placeholder="Full name" id="username" required>
             <input type="email" placeholder="Email" id="email" required>
-            <input type="text" placeholder="Passport" id "passport" required>
+            <input type="text" placeholder="Passport" id="passport" required>
             <button type="submit" id="register-button">Register</button>
         </form>
         <div id="password-container" class="hidden">

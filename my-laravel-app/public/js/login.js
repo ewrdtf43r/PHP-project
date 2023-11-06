@@ -1,11 +1,44 @@
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Получите CSRF-токен из метатега
+const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-    // Получите значения полей и выполните необходимую логику регистрации здесь
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+// Установите CSRF-токен в заголовок запроса для всех AJAX-запросов
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': csrfToken
+    }
+});
 
-    // Пример вывода данных
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
+// Теперь при отправке POST-запроса CSRF-токен будет включен в запрос автоматически
+$(document).ready(function() {
+    $('#login-form').submit(function(e) {
+        e.preventDefault();
+
+        // Получите значения полей
+        const email = $('#email').val();
+        const password = $('#password').val();
+
+        // Отправьте POST-запрос с использованием jQuery и AJAX
+        $.ajax({
+            url: '/login',
+            method: 'POST',
+            data: {
+                email: email,
+                password: password
+            },
+            success: function(response) {
+                // Обработка успешного ответа от сервера
+                // Например, перенаправление на другую страницу
+                window.location.href = '/';
+            },
+            error: function(xhr, status, error) {
+                if (xhr.status === 404) {
+                    alert('User not found.');
+                } else if (xhr.status === 401) {
+                    alert('Incorrect password.');
+                } else {
+                    alert('An error occurred while sending the request: ' + error);
+                }
+            }
+        });
+    });
 });
