@@ -70,7 +70,11 @@ a {
 }
 
 /* Запретить браузеру изменять стили при автозаполнений формы */
-input:-webkit-autofill { 
-    transition: all 0s 50000s; 
+input:autofill {
+    background: rgba(0, 0, 0, 0.0);
+  }
+
+input:-webkit-autofill {
+    transition: all 0s 50000s;
     -webkit-text-fill-color: #FF18F6 !important;
 }
